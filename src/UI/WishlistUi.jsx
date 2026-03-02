@@ -5,6 +5,7 @@ import {
   selectWishlist,
   removeFromWishlist
 } from "../Slices/WishlistSlice";
+import { CiHeart } from "react-icons/ci";
 
 const WishlistUi = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const WishlistUi = () => {
             <button onClick={() => dispatch(removeFromWishlist(item.id))}>
               ❌ Remove
             </button>
+            <button className="wishlist-btn"><CiHeart /></button>
           </div>
         ))
       )}
