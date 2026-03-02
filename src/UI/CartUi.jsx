@@ -30,20 +30,27 @@ const CartUi = () => {
               <p>{item.description}</p>
               <p>Price: ${item.price}</p>
               <p>Quantity: {item.quantity}</p>
+              
               <div>
                 <button onClick={() => dispatch(increaseQty(item.id))}>➕</button>
                 <button onClick={()=> dispatch(decreaseQty(item.id))}>➖</button>
                 <button onClick={()=>dispatch(removeFromCart(item.id))}>🗑</button>
               </div>
+              <div className="cart-summary">
+                  <h2>Total: ${total.toFixed(2)}</h2>
+                    <button onClick={() => navigate("/checkout")}>
+                          💳 Proceed to Checkout
+                    </button>
+              </div>
             </div>
           ))}
         </div>
         {/* TOTAL + checkout*/ }
-        <div className="cart-summary">
+        {/* <div className="cart-summary">
           <h2>Total: ${total.toFixed(2)}</h2>
           <button onClick={()=>navigate("/checkout")}>💳 Proceed to Checkout</button>
 
-        </div>
+        </div> */}
         </>
       )
     }
