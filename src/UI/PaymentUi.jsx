@@ -45,7 +45,7 @@ const PaymentUi = () => {
         </>
       )}
 
-      <button onClick={() => navigate("/otp")}>Pay Now</button>
+      <button onClick={() => navigate("/order-success")}>Pay Now</button>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const OtpUi = () => {
   const verifyOtp = () => {
     if (otp === generatedOtp.toString()) {
       alert("✅ Payment Successful");
-      navigate("/tracking");
+      navigate("/payment");
     } else {
       alert("❌ Invalid OTP");
     }

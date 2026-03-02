@@ -1559,18 +1559,19 @@ import WishlistUi from "./UI/WishlistUi";
 import ProfileUi from "./UI/ProfileUi";
 import Checkout from "./UI/Checkout";
 import Orders from "./UI/OrdersUi";
-
+// import Navbar from "./UI/Navbar";
 // ✅ ADD THESE IMPORTS
 import AddressUi from "./UI/AddressUi";
 import PaymentUi from "./UI/PaymentUi";
 import OtpUi from "./UI/OtpUi";
 import TrackingUi from "./UI/TrackingUi";
-
+import OrderSuccess from "./UI/OrderSuccess";
 import "./App.css";
 
 const App = () => {
   return (
     <BrowserRouter>
+    {/* <Navbar/> */}
       <Routes>
         <Route path="/" element={<LoginUi />} />
 
@@ -1585,6 +1586,7 @@ const App = () => {
         <Route path="/address" element={<AddressUi />} />
         <Route path="/payment" element={<PaymentUi />} />
         <Route path="/otp" element={<OtpUi />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/tracking" element={<TrackingUi />} />
       </Routes>
     </BrowserRouter>

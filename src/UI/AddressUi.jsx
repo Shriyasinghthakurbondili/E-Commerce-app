@@ -17,7 +17,7 @@ const AddressUi = () => {
 
   const handleSubmit = () => {
     dispatch(saveAddress(form));
-    navigate("/payment");
+    navigate("/otp");
   };
 
   return (

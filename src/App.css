@@ -451,3 +451,204 @@ html, body, #root {
     text-align: center;
   }
 }
+
+.success-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.success-card h1 {
+  color: green;
+}
+
+.success-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  color: white;
+  cursor: pointer;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(45deg, #6a5af9, #ff5ac4);
+  color: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* SEARCH */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px;
+  border-radius: 20px;
+  width: 40%;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  width: 100%;
+}
+
+/* ICONS */
+.nav-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-box {
+  background: white;
+  color: black;
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* BANNER */
+.banner {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  color: white;
+}
+
+/* PRODUCTS GRID */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.product-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.product-image {
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CATEGORY */
+.category {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: pink;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+/* WISHLIST */
+.wishlist {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+/* INFO */
+.product-info {
+  padding: 15px;
+}
+
+/* PRICE */
+.price-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BUTTON */
+.price-cart button {
+  background: linear-gradient(45deg, #6a5af9, #ff5ac4);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+/* 🔥 RESPONSIVE FIX */
+@media (max-width: 768px) {
+
+  .search-bar {
+    width: 50%;
+  }
+
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    height: 180px;
+  }
+}
+
