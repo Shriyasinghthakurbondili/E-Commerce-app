@@ -27,46 +27,46 @@ const LoginUi = () => {
   };
 
   return (
-  <div className="login-wrapper">
-    
-    {/* LEFT SIDE */}
-    <div className="login-left">
-      <h1>Welcome Back 👋</h1>
-      <p>Login to explore premium shopping experience</p>
-    </div>
+    <div className="login-wrapper">
 
-    {/* RIGHT SIDE */}
-    <div className="login-right">
-      
-      <div className="login-card">
-        
-        <h2>Sign In</h2>
+      {/* LEFT SIDE */}
+      <div className="login-left">
+        <h1>Welcome Back 👋</h1>
+        <p>Login to explore premium shopping experience</p>
+      </div>
 
-        <input
-          type="text"
-          placeholder="Enter Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+      {/* RIGHT SIDE */}
+      <div className="login-right">
 
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="login-card">
 
-        <button onClick={handleLogin}>Login</button>
+          <h2>Sign In</h2>
 
-        <p className="demo">
-          Demo → Username: <b>emilys</b> <br />
-          Password: <b>emilyspass</b>
-        </p>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
 
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button onClick={handleLogin}>Login</button>
+
+          <p className="demo">
+            Demo → Username: <b>emilys</b> <br />
+            Password: <b>emilyspass</b>
+          </p>
+
+        </div>
       </div>
     </div>
-  </div>
-
-)}
+  );
+};
 
 export default LoginUi;
