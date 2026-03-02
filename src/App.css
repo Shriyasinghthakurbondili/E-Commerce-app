@@ -649,3 +649,77 @@ body {
     font-size: 28px;
   }
 }
+
+/* ===== BANNER FIX ===== */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.banner img,
+.banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DARK OVERLAY */
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+/* TEXT */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.banner-text h1 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.banner-text p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* ===== PRODUCT GRID FIX ===== */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+  .banner {
+    height: 40vh;
+  }
+
+  .banner-text h1 {
+    font-size: 24px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== CARD IMPROVE ===== */
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
