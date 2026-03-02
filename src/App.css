@@ -1,47 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-/* ===== RESET ===== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== ROOT ===== */
 html, body, #root {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
-  background: #f1f5f9;
-  overflow-x: hidden; /* FIX SCROLL ISSUE */
+  background: #f8fafc;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap; /* IMPORTANT */
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
+  padding: 15px 30px;
   background: linear-gradient(90deg, #6366f1, #ec4899);
   color: white;
-  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .logo {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 /* SEARCH */
 .search-bar {
-  flex: 1;
   display: flex;
   align-items: center;
   background: white;
   padding: 8px 15px;
   border-radius: 30px;
-  min-width: 150px;
+  width: 40%;
 }
 
 .search-bar input {
@@ -50,29 +48,23 @@ html, body, #root {
   width: 100%;
 }
 
-/* NAV ICONS */
-.nav-icons {
-  display: flex;
-  gap: 10px;
-}
-
+/* NAV */
 .nav-icons button {
+  margin-left: 10px;
   border: none;
   background: white;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 
-/* ===== BANNER ===== */
+/* BANNER */
 .banner {
   position: relative;
   width: 100%;
-  height: 50vh;
-  overflow: hidden;
+  height: 70vh;
 }
 
-.banner img,
 .banner video {
   width: 100%;
   height: 100%;
@@ -95,58 +87,78 @@ html, body, #root {
 }
 
 .banner-text h1 {
-  font-size: 36px;
+  font-size: 42px;
 }
 
 .banner-text p {
   margin-top: 10px;
 }
 
-/* ===== PRODUCTS ===== */
+/* PRODUCTS */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 25px;
 }
 
-/* CARD */
 .card {
   background: white;
   padding: 15px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .card img {
-  width: 100%;
-  height: 120px;
+  height: 140px;
   object-fit: contain;
+  width: 100%;
 }
 
-/* BUTTON */
 .card button {
   margin-top: 10px;
   padding: 10px;
+  border-radius: 10px;
   border: none;
-  border-radius: 12px;
   background: linear-gradient(90deg, #6366f1, #ec4899);
   color: white;
-  cursor: pointer;
 }
 
-/* ===== LOGIN PAGE ===== */
-.login-wrapper {
+/* COMMON CONTAINER */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.container input,
+.container textarea {
   width: 100%;
-  height: 100vh;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.container button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  color: white;
+}
+
+/* LOGIN */
+.login-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 100vh;
 }
 
 .login-left {
@@ -158,86 +170,56 @@ html, body, #root {
   color: white;
 }
 
-.login-left h1 {
-  font-size: 40px;
-}
-
 .login-right {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f8fafc;
+  background: #f1f5f9;
 }
 
 .login-card {
-  width: 100%;
-  max-width: 380px;
-  padding: 40px;
+  width: 350px;
+  padding: 30px;
   border-radius: 20px;
   background: white;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
   text-align: center;
 }
 
-.login-card input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-.login-card button {
-  width: 100%;
+/* CART */
+.cart-summary {
+  text-align: center;
   margin-top: 20px;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-  color: white;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ================= MOBILE FIX ================= */
 @media (max-width: 768px) {
 
   /* HEADER FIX */
   .header {
     flex-direction: column;
-    align-items: stretch;
+    gap: 10px;
   }
 
   .search-bar {
     width: 100%;
   }
 
-  .nav-icons {
-    width: 100%;
-    justify-content: space-around;
+  /* PRODUCT GRID FIX */
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
   }
 
-  /* BANNER */
+  /* BANNER FIX */
   .banner {
-    height: 35vh;
-  }
-
-  .banner-text {
-    left: 5%;
+    height: 40vh;
   }
 
   .banner-text h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
 
-  .banner-text p {
-    font-size: 14px;
-  }
-
-  /* PRODUCTS */
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* LOGIN */
+  /* LOGIN FIX */
   .login-wrapper {
     grid-template-columns: 1fr;
   }
@@ -247,6 +229,225 @@ html, body, #root {
   }
 
   .login-card {
-    padding: 25px;
+    width: 100%;
+  }
+
+  /* FORM FIX */
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+/* ===== FIXED LOGIN CARD ===== */
+
+.login-card {
+  width: 380px;
+  padding: 40px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* FIX INPUT */
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  display: block; /* IMPORTANT */
+}
+
+/* FIX BUTTON (goes below, full width) */
+.login-card button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* DEMO TEXT */
+.demo {
+  margin-top: 15px;
+  font-size: 13px;
+  color: gray;
+}
+
+/* ===== PROFILE PAGE CLEAN FIX ===== */
+
+.profile-wrapper {
+  padding: 20px;
+  background: #f1f5f9;
+  min-height: 100vh;
+}
+
+/* PROFILE CARD */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* TEXT */
+.profile-title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.profile-name {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.profile-email {
+  color: gray;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.profile-actions {
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.primary {
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  color: white;
+}
+
+.danger {
+  background: #ef4444;
+  color: white;
+}
+
+/* CART SECTION */
+.cart-section {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.cart-card {
+  display: flex;
+  gap: 15px;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: 0.3s;
+}
+
+.cart-card:hover {
+  background: #eef2ff;
+  transform: scale(1.02);
+}
+
+.cart-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.cart-details h3 {
+  font-size: 16px;
+}
+
+.cart-desc {
+  font-size: 13px;
+  color: gray;
+}
+
+.cart-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.price {
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.qty {
+  font-size: 14px;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  color: gray;
+}
+
+/* FOOTER FIX */
+.footer {
+  background: #0f172a;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-main div {
+  margin: 10px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-bottom {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
   }
 }
