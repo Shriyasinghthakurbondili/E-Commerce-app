@@ -913,3 +913,22 @@ html, body, #root {
     grid-template-columns: 1fr;
   }
 }
+
+
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.cart-summary {
+  text-align: center;
+  margin-top: 15px;
+}
+
+@media (max-width: 480px) {
+  .cart-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
