@@ -1,19 +1,72 @@
-import React, {useState} from "react";
-import {FaRobot} from "react-icons/fa"
+import React, { useState } from "react";
+import { FaRobot, FaMicrophone } from "react-icons/fa";
 
-const AiChatBox = () =>{
-    const [open,setOpen] = useState(false)
-    const [messages,setMessages] = useState([])
-      const [input, setInput] = useState("");
+const AiChatBox = () => {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
 
-  const sendMessage = () => {
-    if (!input.trim()) return;
+  // 🎤 Voice recognition
+  const recognition =
+    new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
-    const userMsg = { text: input, sender: "user" };
-    const botMsg = { text: "🤖 Hello! How can I help you today?", sender: "bot" };
+  recognition.lang = "en-US";
 
-    setMessages([...messages, userMsg, botMsg]);
+  // 🗣 Bot speaking
+  const speak = (text) => {
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    window.speechSynthesis.speak(speech);
+  };
+
+  const getReply = (text) => {
+    const msg = text.toLowerCase();
+
+    if (msg.includes("order"))
+      return "You can track your order in the orders page.";
+
+    if (msg.includes("cart"))
+      return "Your cart is available in the cart page.";
+
+    if (msg.includes("hello") || msg.includes("hi"))
+      return "Hello! How can I help you today?";
+
+    if (msg.includes("payment"))
+      return "We support UPI, Card and Cash on Delivery.";
+
+    if (msg.includes("thank you"))
+      return "You're welcome! Happy to help.";
+    
+    if (msg.includes("Have a good day"))
+      return "You too";
+    
+    if (msg.includes("bye"))
+      return "Goodbye! Have a great day.";
+
+    return "Sorry, I didn't understand that.";
+  };
+
+  const sendMessage = (text) => {
+    if (!text.trim()) return;
+
+    const userMsg = { text, sender: "user" };
+    const reply = getReply(text);
+    const botMsg = { text: reply, sender: "bot" };
+
+    setMessages((prev) => [...prev, userMsg, botMsg]);
+
+    speak(reply);
     setInput("");
+  };
+
+  // 🎤 Start voice
+  const startVoice = () => {
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      const speechText = event.results[0][0].transcript;
+      sendMessage(speechText);
+    };
   };
 
   return (
@@ -123,8 +176,9 @@ const AiChatBox = () =>{
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask something..."
             />
+
             <button
-              onClick={sendMessage}
+              onClick={() => sendMessage(input)}
               style={{
                 marginLeft: "6px",
                 padding: "8px 12px",
@@ -136,6 +190,22 @@ const AiChatBox = () =>{
               }}
             >
               Send
+            </button>
+
+            {/* 🎤 Mic button */}
+            <button
+              onClick={startVoice}
+              style={{
+                marginLeft: "6px",
+                padding: "8px",
+                border: "none",
+                borderRadius: "8px",
+                background: "#ec4899",
+                color: "white",
+                cursor: "pointer"
+              }}
+            >
+              <FaMicrophone />
             </button>
           </div>
         </div>
