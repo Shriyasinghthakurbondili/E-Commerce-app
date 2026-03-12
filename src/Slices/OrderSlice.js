@@ -1,11 +1,12 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState ={
-    orders : []
+    orders : [],
+    total:0
 };
 
 const orderSlice = createSlice({
-    name : "order",
+    name : "orders",
     initialState,
     reducers :{
         placeOrder : (state, action) =>{

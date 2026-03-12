@@ -1566,6 +1566,7 @@ import PaymentUi from "./UI/PaymentUi";
 import OtpUi from "./UI/OtpUi";
 import TrackingUi from "./UI/TrackingUi";
 import OrderSuccess from "./UI/OrderSuccess";
+import AiChatBox from "./UI/AiChatBox";
 import "./App.css";
 
 const App = () => {
@@ -1588,7 +1589,9 @@ const App = () => {
         <Route path="/otp" element={<OtpUi />} />
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/tracking" element={<TrackingUi />} />
+        
       </Routes>
+      <AiChatBox/>
     </BrowserRouter>
   );
 };
